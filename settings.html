@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jerry AI — Configure voice settings, appearance, connections, and custom commands.">
+  <title>Jerry AI — Settings</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#050a12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="header">
+      <div class="header-brand">
+        <span class="header-logo">JERRY AI</span>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>System Online</span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="commands.html">Commands</a>
+        <a href="settings.html" class="active">Settings</a>
+      </nav>
+    </header>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="main-content">
+
+      <!-- Page Header -->
+      <div class="page-header fade-in">
+        <a href="index.html" class="back-btn" aria-label="Go back">←</a>
+        <h1 class="page-title">Settings</h1>
+        <div class="system-status">v1.0.0 Stable</div>
+      </div>
+
+      <!-- Settings Grid -->
+      <div class="settings-grid">
+
+        <!-- ─── Voice Configuration ─── -->
+        <section class="settings-section glass hud-frame fade-in">
+          <h2 class="settings-section-title"><i class='bx bx-microphone'></i> Voice Configuration</h2>
+
+          <div class="setting-row">
+            <span class="setting-label">Speech Rate</span>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <input type="range" id="speech-rate" min="100" max="250" value="170">
+              <span class="setting-value" id="rate-value">170</span>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">Voice Type</span>
+            <select id="voice-type">
+              <option value="male">Male — Default</option>
+              <option value="female">Female</option>
+              <option value="robotic">Robotic</option>
+            </select>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">Volume</span>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <input type="range" id="volume" min="0" max="100" value="80">
+              <span class="setting-value" id="vol-value">80%</span>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">Wake Word</span>
+            <input type="text" id="wake-word" value="Hey Jerry" style="max-width:200px;">
+          </div>
+        </section>
+
+        <!-- ─── Appearance & HUD ─── -->
+        <section class="settings-section glass hud-frame fade-in">
+          <h2 class="settings-section-title"><i class='bx bx-palette'></i> Appearance & HUD</h2>
+
+          <div class="setting-row">
+            <span class="setting-label">Theme Mode</span>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span class="setting-value" style="font-size:0.75rem;">Dark</span>
+              <div class="toggle-switch on" id="theme-toggle"></div>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">Accent Color</span>
+            <div class="color-picker" id="color-picker">
+              <div class="color-dot cyan selected" data-color="cyan" title="Cyan"></div>
+              <div class="color-dot purple" data-color="purple" title="Purple"></div>
+              <div class="color-dot green" data-color="green" title="Green"></div>
+              <div class="color-dot orange" data-color="orange" title="Orange"></div>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">HUD Scanlines</span>
+            <div class="toggle-switch on" id="scanline-toggle"></div>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">Animations</span>
+            <div class="toggle-switch on" id="animation-toggle"></div>
+          </div>
+        </section>
+
+        <!-- ─── Connectivity & I/O ─── -->
+        <section class="settings-section glass hud-frame fade-in">
+          <h2 class="settings-section-title"><i class='bx bx-broadcast'></i> Connectivity & I/O</h2>
+
+          <div class="setting-row">
+            <span class="setting-label">Android Bridge (ADB)</span>
+            <div class="adb-status disconnected" id="adb-status">
+              <span>⊘ Not Connected</span>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">Microphone Input</span>
+            <select id="mic-input">
+              <option value="default">Default Microphone</option>
+            </select>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">WebSocket Server</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <input type="text" id="ws-server" value="ws://localhost:8765" style="max-width:220px;">
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-label">Auto-Connect</span>
+            <div class="toggle-switch on" id="autoconnect-toggle"></div>
+          </div>
+        </section>
+
+        <!-- ─── Custom Command Builder ─── -->
+        <section class="settings-section glass hud-frame fade-in">
+          <h2 class="settings-section-title"><i class='bx bx-wrench'></i> Custom Command Builder</h2>
+
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <label style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Trigger Phrase</label>
+              <input type="text" id="custom-trigger" placeholder='e.g. "open my project"'>
+            </div>
+            <div>
+              <label style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Action (Python / Command)</label>
+              <textarea id="custom-action" rows="3" style="font-family:var(--font-mono);font-size:0.85rem;resize:vertical;" placeholder='e.g. os.system("start code")'></textarea>
+            </div>
+            <button class="btn-save" style="margin-top:0;" onclick="saveCustomCommand()">Add to Jerry</button>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Save All Button -->
+      <button class="btn-save" id="save-settings" onclick="saveAllSettings()">
+        ⟐ Save All Settings
+      </button>
+
+      <!-- System Info -->
+      <div class="fade-in" style="text-align:center; margin-top:32px; padding:24px;">
+        <div style="font-family:var(--font-display);font-size:0.7rem;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;">Jerry AI v1.0.0 — Stable</div>
+        <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);margin-top:8px;letter-spacing:1px;">
+          Core Architecture: Neural-Link Sync • Python Backend<br>
+          Designed with Google Stitch
+        </div>
+      </div>
+
+      <div class="content-spacer"></div>
+    </main>
+
+    <!-- ═══ BOTTOM NAVIGATION ═══ -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item">
+        <span class="nav-icon"><i class='bx bx-home-alt'></i></span>
+        <span class="nav-label">Home</span>
+      </a>
+      <a href="commands.html" class="nav-item">
+        <span class="nav-icon"><i class='bx bx-bolt-circle'></i></span>
+        <span class="nav-label">Commands</span>
+      </a>
+      <a href="settings.html" class="nav-item active">
+        <span class="nav-icon"><i class='bx bx-cog'></i></span>
+        <span class="nav-label">Settings</span>
+      </a>
+      <a href="index.html#about" class="nav-item">
+        <span class="nav-icon"><i class='bx bx-info-circle'></i></span>
+        <span class="nav-label">About</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

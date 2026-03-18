@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jerry AI — Browse and manage all available voice commands.">
+  <title>Jerry AI — Commands</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#050a12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="header">
+      <div class="header-brand">
+        <span class="header-logo">JERRY AI</span>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>System Online</span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="commands.html" class="active">Commands</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+    </header>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="main-content">
+
+      <!-- Page Header -->
+      <div class="page-header fade-in">
+        <a href="index.html" class="back-btn" aria-label="Go back">←</a>
+        <h1 class="page-title">Commands</h1>
+        <div class="system-status">System Status: Optimal</div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-bar glass fade-in" id="search-bar">
+        <span class="search-icon"><i class='bx bx-search'></i></span>
+        <input type="text" id="cmd-search" placeholder="Search commands..." autocomplete="off">
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs fade-in" id="category-tabs">
+        <button class="tab-pill active" data-cat="all">All</button>
+        <button class="tab-pill" data-cat="system">System</button>
+        <button class="tab-pill" data-cat="media">Media</button>
+        <button class="tab-pill" data-cat="productivity">Productivity</button>
+        <button class="tab-pill" data-cat="android">Android</button>
+      </div>
+
+      <!-- Command Grid -->
+      <div class="command-grid stagger-children" id="command-grid">
+
+        <!-- SYSTEM -->
+        <div class="command-card glass hud-frame" data-category="system">
+          <div class="command-card-header">
+            <div class="cmd-icon"><i class='bx bx-laptop'></i></div>
+            <div class="toggle-switch on" data-cmd="open-google"></div>
+          </div>
+          <div class="command-name">Open Google</div>
+          <div class="command-trigger">"Hey Jerry, open Google"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="system">
+          <div class="command-card-header">
+            <div class="cmd-icon"><i class='bx bx-refresh'></i></div>
+            <div class="toggle-switch on" data-cmd="reboot"></div>
+          </div>
+          <div class="command-name">System Reboot</div>
+          <div class="command-trigger">"Hey Jerry, reboot system"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="system">
+          <div class="command-card-header">
+            <div class="cmd-icon"><i class='bx bx-camera'></i></div>
+            <div class="toggle-switch on" data-cmd="screenshot"></div>
+          </div>
+          <div class="command-name">Take Screenshot</div>
+          <div class="command-trigger">"Hey Jerry, take screenshot"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="system">
+          <div class="command-card-header">
+            <div class="cmd-icon"><i class='bx bx-lock-alt'></i></div>
+            <div class="toggle-switch on" data-cmd="lock"></div>
+          </div>
+          <div class="command-name">Lock Screen</div>
+          <div class="command-trigger">"Hey Jerry, lock screen"</div>
+        </div>
+
+        <!-- MEDIA -->
+        <div class="command-card glass hud-frame" data-category="media">
+          <div class="command-card-header">
+            <div class="cmd-icon">▶️</div>
+            <div class="toggle-switch on" data-cmd="open-youtube"></div>
+          </div>
+          <div class="command-name">Open YouTube</div>
+          <div class="command-trigger">"Hey Jerry, open YouTube"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="media">
+          <div class="command-card-header">
+            <div class="cmd-icon">🎵</div>
+            <div class="toggle-switch on" data-cmd="play-music"></div>
+          </div>
+          <div class="command-name">Play Music</div>
+          <div class="command-trigger">"Hey Jerry, play some music"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="media">
+          <div class="command-card-header">
+            <div class="cmd-icon">🎬</div>
+            <div class="toggle-switch on" data-cmd="play-netflix"></div>
+          </div>
+          <div class="command-name">Open Netflix</div>
+          <div class="command-trigger">"Hey Jerry, open Netflix"</div>
+        </div>
+
+        <!-- PRODUCTIVITY -->
+        <div class="command-card glass hud-frame" data-category="productivity">
+          <div class="command-card-header">
+            <div class="cmd-icon">📄</div>
+            <div class="toggle-switch on" data-cmd="create-pdf"></div>
+          </div>
+          <div class="command-name">Create PDF</div>
+          <div class="command-trigger">"Hey Jerry, make a PDF"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="productivity">
+          <div class="command-card-header">
+            <div class="cmd-icon">📝</div>
+            <div class="toggle-switch on" data-cmd="create-note"></div>
+          </div>
+          <div class="command-name">Create Note</div>
+          <div class="command-trigger">"Hey Jerry, create a note"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="productivity">
+          <div class="command-card-header">
+            <div class="cmd-icon">🌤️</div>
+            <div class="toggle-switch on" data-cmd="weather"></div>
+          </div>
+          <div class="command-name">Check Weather</div>
+          <div class="command-trigger">"Hey Jerry, check weather"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="productivity">
+          <div class="command-card-header">
+            <div class="cmd-icon">💬</div>
+            <div class="toggle-switch on" data-cmd="send-whatsapp"></div>
+          </div>
+          <div class="command-name">Send WhatsApp</div>
+          <div class="command-trigger">"Hey Jerry, send WhatsApp"</div>
+        </div>
+
+        <!-- ANDROID -->
+        <div class="command-card glass hud-frame" data-category="android">
+          <div class="command-card-header">
+            <div class="cmd-icon">📱</div>
+            <div class="toggle-switch on" data-cmd="android-youtube"></div>
+          </div>
+          <div class="command-name">Android YouTube</div>
+          <div class="command-trigger">"Hey Jerry, open YouTube on phone"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="android">
+          <div class="command-card-header">
+            <div class="cmd-icon">📞</div>
+            <div class="toggle-switch on" data-cmd="android-call"></div>
+          </div>
+          <div class="command-name">Make Phone Call</div>
+          <div class="command-trigger">"Hey Jerry, call someone"</div>
+        </div>
+
+        <div class="command-card glass hud-frame" data-category="android">
+          <div class="command-card-header">
+            <div class="cmd-icon">💡</div>
+            <div class="toggle-switch on" data-cmd="toggle-lights"></div>
+          </div>
+          <div class="command-name">Toggle Lights</div>
+          <div class="command-trigger">"Hey Jerry, turn on lights"</div>
+        </div>
+
+      </div>
+
+      <div class="content-spacer"></div>
+    </main>
+
+    <!-- Floating Add Button -->
+    <button class="fab" id="fab-add" aria-label="Add custom command" title="Add Custom Command">＋</button>
+
+    <!-- ═══ BOTTOM NAVIGATION ═══ -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item">
+        <span class="nav-icon"><i class='bx bx-home-alt'></i></span>
+        <span class="nav-label">Home</span>
+      </a>
+      <a href="commands.html" class="nav-item active">
+        <span class="nav-icon"><i class='bx bx-bolt-circle'></i></span>
+        <span class="nav-label">Commands</span>
+      </a>
+      <a href="settings.html" class="nav-item">
+        <span class="nav-icon"><i class='bx bx-cog'></i></span>
+        <span class="nav-label">Settings</span>
+      </a>
+      <a href="index.html#about" class="nav-item">
+        <span class="nav-icon"><i class='bx bx-info-circle'></i></span>
+        <span class="nav-label">About</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <!-- ═══ ADD COMMAND MODAL ═══ -->
+  <div id="add-cmd-modal" style="display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.8); backdrop-filter:blur(10px); align-items:center; justify-content:center;">
+    <div class="glass-strong" style="max-width:480px; width:90%; padding:32px; border-radius:var(--radius-lg); position:relative;">
+      <button onclick="document.getElementById('add-cmd-modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;">✕</button>
+      <h2 style="font-family:var(--font-display);font-size:0.85rem;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;margin-bottom:24px;">Add Custom Command</h2>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div>
+          <label style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Command Name</label>
+          <input type="text" id="new-cmd-name" placeholder="e.g. Open Spotify">
+        </div>
+        <div>
+          <label style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Trigger Phrase</label>
+          <input type="text" id="new-cmd-trigger" placeholder='e.g. "Hey Jerry, open Spotify"'>
+        </div>
+        <div>
+          <label style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Category</label>
+          <select id="new-cmd-category">
+            <option value="system">System</option>
+            <option value="media">Media</option>
+            <option value="productivity">Productivity</option>
+            <option value="android">Android</option>
+          </select>
+        </div>
+        <button class="btn-save" style="margin-top:8px;" onclick="addCustomCommand()">Add Command</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jerry AI — Your personal AI voice assistant. Control your PC and Android with futuristic voice commands.">
+  <title>Jerry AI — Dashboard</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#050a12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Jerry AI">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="header" id="main-header">
+      <div class="header-brand">
+        <span class="header-logo">JERRY AI</span>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>System Online</span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="commands.html">Commands</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+    </header>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="main-content">
+
+      <!-- Welcome Message -->
+      <div class="fade-in" style="text-align:center; margin-bottom: 8px;">
+        <p style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); letter-spacing:2px; text-transform:uppercase;">
+          Welcome back. System diagnostics optimal.
+        </p>
+      </div>
+
+      <!-- ─── Voice Activation ─── -->
+      <section class="voice-section fade-in" id="voice-section">
+        <!-- Waveform Visualizer -->
+        <div class="waveform-container" id="waveform">
+          <!-- Bars injected by JS -->
+        </div>
+
+        <!-- Voice Button -->
+        <div class="voice-btn-wrapper">
+          <div class="voice-btn-ring"></div>
+          <div class="voice-btn-ring"></div>
+          <div class="voice-btn-ring"></div>
+          <button class="voice-btn" id="voice-btn" aria-label="Activate voice command">
+            <span class="mic-icon"><i class='bx bx-microphone'></i></span>
+            <span class="btn-label">Tap to speak</span>
+          </button>
+        </div>
+        <p class="voice-status" id="voice-status">Awaiting command</p>
+      </section>
+
+      <!-- ─── Quick Actions ─── -->
+      <section class="quick-actions slide-up" id="quick-actions">
+        <div class="section-label">Quick Actions</div>
+        <div class="actions-row stagger-children" id="actions-row">
+          <div class="action-card" data-action="open-youtube">
+            <div class="card-icon" style="color: #ff0000;"><i class='bx bxl-youtube'></i></div>
+            <span class="card-title">YouTube</span>
+          </div>
+          <div class="action-card" data-action="open-google">
+            <div class="card-icon" style="color: #4285F4;"><i class='bx bxl-google'></i></div>
+            <span class="card-title">Google</span>
+          </div>
+          <div class="action-card" data-action="create-pdf">
+            <div class="card-icon" style="color: #ff3b5c;"><i class='bx bxs-file-pdf'></i></div>
+            <span class="card-title">Create PDF</span>
+          </div>
+          <div class="action-card" data-action="send-whatsapp">
+            <div class="card-icon" style="color: #25D366;"><i class='bx bxl-whatsapp'></i></div>
+            <span class="card-title">WhatsApp</span>
+          </div>
+          <div class="action-card" data-action="play-music">
+            <div class="card-icon" style="color: #1DB954;"><i class='bx bxl-spotify'></i></div>
+            <span class="card-title">Music</span>
+          </div>
+          <div class="action-card" data-action="weather">
+            <div class="card-icon" style="color: #ffc107;"><i class='bx bx-cloud'></i></div>
+            <span class="card-title">Weather</span>
+          </div>
+          <div class="action-card" data-action="screenshot">
+            <div class="card-icon" style="color: var(--cyan);"><i class='bx bx-camera'></i></div>
+            <span class="card-title">Screenshot</span>
+          </div>
+          <div class="action-card" data-action="notepad">
+            <div class="card-icon" style="color: var(--cyan);"><i class='bx bx-notepad'></i></div>
+            <span class="card-title">Notepad</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Chat History ─── -->
+      <section class="chat-section slide-up" id="chat-section">
+        <div class="section-label">Command History</div>
+        <div class="chat-panel glass hud-frame" id="chat-panel">
+          <!-- Default messages -->
+          <div class="chat-bubble jerry">
+            <div class="bubble-label">Jerry</div>
+            Hello! I'm Jerry, your personal AI assistant. How can I help you today?
+          </div>
+          <div class="chat-bubble user">
+            <div class="bubble-label">You</div>
+            "What's the weather today?"
+          </div>
+          <div class="chat-bubble jerry">
+            <div class="bubble-label">Jerry</div>
+            Currently it's clear skies. Perfect conditions for productivity! ☀️
+          </div>
+        </div>
+      </section>
+
+      <div class="content-spacer"></div>
+    </main>
+
+    <!-- ═══ BOTTOM NAVIGATION ═══ -->
+    <nav class="bottom-nav" id="bottom-nav">
+      <a href="index.html" class="nav-item active" id="nav-home">
+        <span class="nav-icon"><i class='bx bx-home-alt'></i></span>
+        <span class="nav-label">Home</span>
+      </a>
+      <a href="commands.html" class="nav-item" id="nav-commands">
+        <span class="nav-icon"><i class='bx bx-bolt-circle'></i></span>
+        <span class="nav-label">Commands</span>
+      </a>
+      <a href="settings.html" class="nav-item" id="nav-settings">
+        <span class="nav-icon"><i class='bx bx-cog'></i></span>
+        <span class="nav-label">Settings</span>
+      </a>
+      <a href="#about" class="nav-item" id="nav-about" onclick="showAbout()">
+        <span class="nav-icon"><i class='bx bx-info-circle'></i></span>
+        <span class="nav-label">About</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <!-- ═══ ABOUT MODAL ═══ -->
+  <div id="about-modal" style="display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.8); backdrop-filter:blur(10px); display:none; align-items:center; justify-content:center;">
+    <div class="glass-strong about-panel" style="max-width:500px; width:90%; position:relative;">
+      <button onclick="closeAbout()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;">✕</button>
+      <div class="about-logo">JERRY AI</div>
+      <div class="about-version">v1.0.0 — Neural Interface</div>
+      <p class="about-desc">
+        Your personal AI voice assistant. Built with Python voice recognition, Web Speech API,
+        and a futuristic HUD interface. Control your PC and Android devices with natural voice commands.
+      </p>
+      <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-muted); letter-spacing:1px;">
+        Core: Python + WebSocket • UI: Custom HUD<br>
+        Designed with Google Stitch
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

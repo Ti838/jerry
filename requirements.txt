@@ -1,0 +1,10 @@
+# Jerry AI — Python Dependencies
+# Install with: pip install -r requirements.txt
+
+speechrecognition
+pyttsx3
+pywhatkit
+pyautogui
+reportlab
+pyaudio
+websockets
